@@ -1,3 +1,9 @@
+
+
+
+
+
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -13,11 +19,9 @@ app.use(cors({
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
+// console.log(process.env.MONGO_DB_CONNECTION_URL);
 
-mongoose.connect('mongodb://localhost:27017/userdb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_DB_CONNECTION_URL)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -51,6 +55,9 @@ app.get('/user', async (req, res) => {
     return res.status(500).send("Error occurred while fetching data: " + error.message);
   }
 });
+
+
+
 
 // Start server
 app.listen(port, () => {
