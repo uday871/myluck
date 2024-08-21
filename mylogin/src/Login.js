@@ -9,7 +9,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/api/register', { username, password });
+      const response = await axios.post('https://myl-erjr.onrender.com/api/register', { username, password });
       alert(response.data.message);
     } catch (error) {
       console.error('Registration error:', error);

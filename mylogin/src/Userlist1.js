@@ -6,7 +6,7 @@ const Userlist1 = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/user')
+    axios.get('https://myl-erjr.onrender.com/user')
       .then(response => {
         setUsers(response.data); 
       })

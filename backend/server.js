@@ -15,11 +15,11 @@ const port = 8000;
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: '*',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
-// console.log(process.env.MONGO_DB_CONNECTION_URL);
+
 
 mongoose.connect(process.env.MONGO_DB_CONNECTION_URL)
   .then(() => console.log('MongoDB connected'))
