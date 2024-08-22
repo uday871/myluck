@@ -4,22 +4,24 @@ import axios from 'axios';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
 
-  const handleRegister = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://myl-erjr.onrender.com/api/register', { username, password });
-      alert(response.data.message);
+      const response = await axios.post('https://your-server-url.com/api/login', { username, password });
+      setToken(response.data.token);  // Store the token in state (or local storage)
+      alert('Login successful');
     } catch (error) {
-      console.error('Registration error:', error);
-      alert('Registration failed');
+      console.error('Login error:', error);
+      alert('Login failed');
     }
   };
 
   return (
     <div>
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
         <label>
           Username:
           <input
@@ -40,14 +42,15 @@ const Login = () => {
           />
         </label>
         <br />
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
       </form>
 
-      <div className="summery">
-        <p>
-          this is my new login page to display something
-        </p>
-      </div>
+      {token && (
+        <div>
+          <h3>Your JWT Token</h3>
+          <p>{token}</p>
+        </div>
+      )}
     </div>
   );
 };
