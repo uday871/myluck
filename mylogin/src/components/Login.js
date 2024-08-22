@@ -7,7 +7,6 @@ const Login = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post('https://myl-erjr.onrender.com/api/register', { username, password });
       alert(response.data.message);
@@ -16,7 +15,7 @@ const Login = () => {
       alert('Registration failed');
     }
   };
-  
+
   return (
     <div>
       <h2>Register</h2>
@@ -46,6 +45,5 @@ const Login = () => {
     </div>
   );
 };
-
 
 export default Login;

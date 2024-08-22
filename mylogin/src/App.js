@@ -1,18 +1,16 @@
 import React from 'react';
-import Userlist1 from './Userlist1'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './Login.js';
+import Userlist1 from './components/Userlist1';
+import Login from './components/Login';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<Userlist1 />} /> {/* Home route */}
-          <Route path="/Login" element={<Login />} /> {/* Login route */}
-          <Route path="/userlist1" element={<Userlist1 />} /> {/* User list route */}
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Userlist1 />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/userlist1" element={<Userlist1 />} />
+      </Routes>
     </Router>
   );
 };
