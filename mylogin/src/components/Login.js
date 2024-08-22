@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Login.css'
 
 
 const Login = () => {
@@ -44,12 +45,6 @@ const Login = () => {
         <br />
         <button type="submit">Register</button>
       </form>
-
-      <div className="summery">
-        <p>
-          this is my new login page to display something
-        </p>
-      </div>
     </div>
   );
 };
